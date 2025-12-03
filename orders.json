@@ -1,23 +1,23 @@
 [
   {
-    "id": 1,
-    "pizza": "Margherita",
-    "size": "M",
-    "status": "confirmed",
-    "total": 12.50
+    "RegistrationID": 101,
+    "PersonID": 1001,
+    "EventID": 501,
+    "PaymentStatus": "paid",
+    "RegistrationDate": "2025-10-12"
   },
   {
-    "id": 2,
-    "pizza": "Diavola",
-    "size": "L",
-    "status": "confirmed",
-    "total": 17.50
+    "RegistrationID": 102,
+    "PersonID": 1002,
+    "EventID": 502,
+    "PaymentStatus": "pending",
+    "RegistrationDate": "2025-10-20"
   },
   {
-    "id": 3,
-    "pizza": "Prosciutto e Funghi",
-    "size": "S",
-    "status": "pending",
-    "total": 11.00
+    "RegistrationID": 103,
+    "PersonID": 1003,
+    "EventID": 501,
+    "PaymentStatus": "paid",
+    "RegistrationDate": "2025-10-25"
   }
 ]
