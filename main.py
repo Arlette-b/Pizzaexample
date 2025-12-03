@@ -1,45 +1,45 @@
 from fastapi import FastAPI, HTTPException
 import json
 from pathlib import Path
-
-app = FastAPI(title="Pizzeria API")
-
-ORDERS_FILE = Path("orders.json")
-
-
-def load_orders():
-    if not ORDERS_FILE.exists():
-        return []
-    with open(ORDERS_FILE, "r") as f:
-        return json.load(f)
-
-def save_orders(orders):
-    with open(ORDERS_FILE, "w") as f:
-        json.dump(orders, f, indent=4)
-
-
+ 
+app = FastAPI(title="EMIS API")
+ 
+REGISTRATIONS_FILE = Path("registrations.json")
+ 
+ 
+def load_registrations():
+    if not REGISTRATIONS_FILE.exists():
+        return []
+    with open(REGISTRATIONS_FILE, "r") as f:
+        return json.load(f)
+ 
+def save_registrations(registrations):
+    with open(REGISTRATIONS_FILE, "w") as f:
+        json.dump(registrations, f, indent=4)
+ 
+ 
 @app.get("/")
 def root():
-    return {"message": "Welcome to the Pizzeria API!"}
-
-
+    return {"message": "Welcome to the EMIS API!"}
+ 
+ 
 # ---------------------------
-# READ – Get a single order
+# READ – Get a single registration
 # ---------------------------
-@app.get("/orders/{order_id}")
-def get_order(order_id: int):
-    orders = load_orders()
-
-    for order in orders:
-        if order["id"] == order_id:
-            return order
-
-    raise HTTPException(status_code=404, detail="Order not found")
-
-
+@app.get("/registrations/{registration_id}")
+def get_registration(registration_id: int):
+    registrations = load_registrations()
+ 
+    for registration in registrations:
+        if registration["RegistrationID"] == registration_id:
+            return registration
+ 
+    raise HTTPException(status_code=404, detail="Registration not found")
+ 
+ 
 # ---------------------------
-# READ – Get all orders
+# READ – Get all registrations
 # ---------------------------
-@app.get("/orders")
-def list_orders():
-    return load_orders()
+@app.get("/registrations")
+def list_registrations():
+    return load_registrations()
